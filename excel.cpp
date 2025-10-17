@@ -3,23 +3,27 @@
 #include <string>
 using namespace std;
 
-int tituloAColumna(string titulo) {
-    int resultado = 0;
-    for (char letra : titulo) {
-        letra = toupper(letra);
-        int valor = letra - 'A' + 1;
-        resultado = resultado * 26 + valor;
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int resultado = 0;
+        for (char letra : columnTitle) {
+            letra = toupper(letra);  
+            int valor = letra - 'A' + 1;  
+            resultado = resultado * 26 + valor;  
+        }
+        return resultado;
     }
-    return resultado;
-}
+};
 
 int main() {
+    Solution sol;
     string titulo;
-    cout << "Ingrese el titulo de columna de Excel (por ejemplo, AB): ";
+    cout << "Ingrese el título de columna de Excel (por ejemplo, AB): ";
     cin >> titulo;
 
-    int numero = tituloAColumna(titulo);
-    cout << "El numero es: " << numero << endl;
+    cout << "El número de columna correspondiente es: "
+         << sol.titleToNumber(titulo) << endl;
 
     return 0;
 }
